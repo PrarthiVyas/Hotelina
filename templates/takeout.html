@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container-fluid" style="background-color: #f0e6c1">
+  <div class="container my-3" >
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
+      {% for i in bvn%}
+      
+        <div class="col" >
+         
+        <div class="card shadow-sm" style="height: 500px;">
+          {% if i.cat3|stringformat:"s" == "Takeout"%}
+          <img src="/media/{{i.image}}" class="d-block w-100" style="height: 230px;">
+          <div class="card-body" style="height:200px">
+            <h5 class="card-text">{{i.name}}</h5>
+            <p class="card-text">Address: {{i.area}} 
+            </p>
+            <p class="card-text">Phone: {{i.cat1}} 
+            </p>
+            <p class="card-text">Category: {{i.cat3}} 
+            </p>
+            
+            <div class="d-flex justify-content-between align-items-center"> 
+              <div class="btn-group mt-9">
+                
+                
+                {% if i.entry2|stringformat:"s" == "Restaura"  %}
+               
+                <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{% url 'home:restaura' i.id %}" style="text-decoration: none;color: gray;">Restaura</a></button>
+               
+                  {% endif %}
+              </div>
+              <small class="text-muted"></small>
+            </div>
+            
+          </div>
+          
+          {% endif %}
+        </div>
+      </div>
+     
+      {% endfor %}
+      
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

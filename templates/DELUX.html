@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block body %}
+<br><br>
+  <div class="container my-3" >
+    
+     
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
+      {% for i in bvn %}
+        <div class="col" >
+        <div class="card shadow-sm" style="height: 450px;">
+         <a href="/room/{{hotel_id}}/{{i.id}}"> <img src="/media/{{i.image}}" class="d-block w-100" style="height: 230px;"></a>
+          <div class="card-body" style="height:100px">
+            <h5 class="card-text" >{{i.category}}</h5>
+            <p class="card-text">Beds: {{i.beds}} 
+            </p>
+            <p class="card-text">Capacity: {{i.capacity}} 
+            </p>
+            <p class="card-text">Price: {{i.amount}} RS.
+            </p>
+            <br>
+            <div class="d-flex justify-content-between align-items-center"> 
+              
+              <small class="text-muted"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+      
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

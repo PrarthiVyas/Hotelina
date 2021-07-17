@@ -1,0 +1,130 @@
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #f5f5f5;
+        }
+
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+
+        .form-signin .checkbox {
+            font-weight: 400;
+        }
+
+        .form-signin .form-control {
+            margin: 16px 3px;
+            position: relative;
+            box-sizing: border-box;
+            height: auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+
+        .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="text-center bg-cover" style="background-image: linear-gradient(to bottom, rgba(1, 1, 15, 0.6) 0%,rgba(235, 237, 255, 0.6) 100%),  
+    url('/static/reback.jpg');">
+   
+    <form class="form-signin" method="post">
+        {% csrf_token %}
+        <!-- <input type="hidden" name="csrfmiddlewaretoken" value="Ala09hgT4968uhvJ1sORRKuH8FX2memOVELZ5Kyuyj8kgOPyTi3iNf611ipUEV3y"> -->
+        
+        <h1 class="h4 mb-2 ml-2 font-weight-bolder" style="color:blanchedalmond;font-size: 24px;"><b>Enter Your Details Here</b></h1>
+        
+        <label for="inputEmail" class="sr-only" aria-required="true" required>Name:</label>
+        <input type="text" id="inputEmail" name="username" class="form-control" placeholder="Username" required="" autofocus="">
+        
+        
+        <label for="inputEmail" class="sr-only" aria-required="true" required>Phone no:</label>
+        <input type="number" id="inputEmail" name="phone1" class="form-control" placeholder="Phone no" required="" autofocus="">
+        
+        
+          <label for="inputEmail" class="sr-only" aria-required="true" required>No of members:</label>
+          <input type="number" id="inputEmail" name="no_of_members" class="form-control" placeholder="No of members" required="" autofocus="">
+          <label for="inputEmail" class="sr-only" aria-required="true" required>Time:</label>
+
+          <input type="time" id="inputEmail" name="time" class="form-control" placeholder="Time" required="" autofocus="">
+        
+         <input  name="url" style="display: none;" value="{{ request.META.HTTP_REFERER }}">
+         <!-- <input  name="next" value="{{  request.get_full_path }}" /> -->
+          <input style="display:none" name="hotel_id" value="{{hotel_id}}">
+          
+
+          
+          
+          
+          
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button><br><br>
+          {% for message in messages  %}            
+    <div class="text-success" style="font-size: 18px;font-weight: bolder;">
+         
+          {{ message }}
+          
+        </div>
+    {% endfor %}    
+    </form>
+
+
+
+</html>
